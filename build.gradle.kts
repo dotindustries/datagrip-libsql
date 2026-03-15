@@ -36,6 +36,18 @@ intellijPlatform {
 }
 
 tasks {
+    prepareSandbox {
+        doLast {
+            val sandboxDir = defaultDestinationDirectory.get().asFile
+            val pluginDir = sandboxDir.resolve("datagrip-libsql")
+            val targetDir = pluginDir.resolve("datagrip-driver-libsql")
+            targetDir.mkdirs()
+            pluginDir.resolve("lib").listFiles()?.filter { it.extension == "jar" }?.forEach { jar ->
+                jar.copyTo(targetDir.resolve(jar.name), overwrite = true)
+            }
+        }
+    }
+
     patchPluginXml {
         sinceBuild.set(providers.gradleProperty("pluginSinceBuild"))
     }
