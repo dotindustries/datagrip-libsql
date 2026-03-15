@@ -43,7 +43,12 @@ tasks {
             val targetDir = pluginDir.resolve("datagrip-driver-libsql")
             targetDir.mkdirs()
             pluginDir.resolve("lib").listFiles()?.filter { it.extension == "jar" }?.forEach { jar ->
-                jar.copyTo(targetDir.resolve(jar.name), overwrite = true)
+                val stableName = when {
+                    jar.name.startsWith("datagrip-libsql") -> "libsql-driver.jar"
+                    jar.name.startsWith("gson") -> "gson.jar"
+                    else -> jar.name
+                }
+                jar.copyTo(targetDir.resolve(stableName), overwrite = true)
             }
             targetDir.resolve("driver.xml").writeText("""<?xml version="1.0" encoding="UTF-8"?>
 <drivers>

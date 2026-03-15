@@ -5,7 +5,8 @@
     <url-template name="Turso Cloud" template="jdbc:libsql:https://{host}"/>
     <option name="auto-sync" value="true"/>
     <library>
-      <url>file://$APPLICATION_CONFIG_DIR$/plugins/datagrip-libsql/datagrip-driver-libsql</url>
+      <url>file://$APPLICATION_CONFIG_DIR$/plugins/datagrip-libsql/datagrip-driver-libsql/libsql-driver.jar</url>
+      <url>file://$APPLICATION_CONFIG_DIR$/plugins/datagrip-libsql/datagrip-driver-libsql/gson.jar</url>
     </library>
   </driver>
 </drivers>
