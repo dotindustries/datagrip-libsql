@@ -45,6 +45,15 @@ tasks {
             pluginDir.resolve("lib").listFiles()?.filter { it.extension == "jar" }?.forEach { jar ->
                 jar.copyTo(targetDir.resolve(jar.name), overwrite = true)
             }
+            targetDir.resolve("driver.xml").writeText("""<?xml version="1.0" encoding="UTF-8"?>
+<drivers>
+  <driver id="libsql" name="libSQL / Turso" driver-class="com.dotinc.libsql.LibSqlDriver" dialect="SQLITE">
+    <url-template name="default" template="jdbc:libsql:{host::localhost}[:{port::8080}]"/>
+    <url-template name="Turso Cloud" template="jdbc:libsql:https://{host}"/>
+    <option name="auto-sync" value="true"/>
+  </driver>
+</drivers>
+""")
         }
     }
 
