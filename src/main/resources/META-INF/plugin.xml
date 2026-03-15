@@ -1,0 +1,16 @@
+<idea-plugin>
+    <id>com.dotinc.datagrip-libsql</id>
+    <name>libSQL / Turso</name>
+    <vendor email="hello@dot-inc.com" url="https://github.com/dot-inc">dot-inc</vendor>
+    <description><![CDATA[
+    Native JDBC driver for libSQL and Turso databases in DataGrip.
+    <ul>
+        <li>Full schema introspection — tables appear in the database tree</li>
+        <li>Proper query lifecycle — no hanging spinners</li>
+        <li>DBMS detected as SQLite/libSQL</li>
+        <li>Connects via the libSQL HTTP pipeline API</li>
+    </ul>
+    ]]></description>
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.database</depends>
+</idea-plugin>
