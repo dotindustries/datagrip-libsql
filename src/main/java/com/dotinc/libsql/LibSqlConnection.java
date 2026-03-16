@@ -452,7 +452,7 @@ public class LibSqlConnection implements Connection {
 
     @Override
     public void abort(Executor executor) throws SQLException {
-        throw new SQLFeatureNotSupportedException("abort is not supported by libSQL driver");
+        closed = true;
     }
 
     @Override
