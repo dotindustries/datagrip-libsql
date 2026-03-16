@@ -16,7 +16,7 @@ public class LibSqlDriver implements Driver {
 
     private static final String URL_PREFIX = "jdbc:libsql:";
     private static final int MAJOR_VERSION = 0;
-    private static final int MINOR_VERSION = 21;
+    private static final int MINOR_VERSION = 22;
 
     private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger("com.dotinc.libsql");
 
