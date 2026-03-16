@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
-  <driver id="libsql" name="libSQL / Turso" driver-class="com.dotinc.libsql.LibSqlDriver" dialect="SQLITE" icon="icons.LibSqlIcons.Libsql">
+  <driver id="libsql" name="libSQL / Turso" driver-class="com.dotinc.libsql.LibSqlDriver" dialect="SQLITE" icon="icons/libsql.svg">
     <url-template name="Turso Cloud" template="jdbc:libsql:https://{host}" default="true"/>
     <url-template name="Local" template="jdbc:libsql:{host::localhost}[:{port::8080}]"/>
     <property name="authToken" value=""/>
