@@ -25,5 +25,8 @@ out/
 .DS_Store
 Thumbs.db
 
+# IntelliJ Platform sandbox/cache
+.intellijPlatform/
+
 # Runtime
 *.log

@@ -1,9 +1,0 @@
-<application>
-  <component name="com.intellij.ide.ui.customization.CustomActionsSchema">
-    <group value="TopStripeActionGroup" is_action="true" action_type="1" position="0">
-      <path value="root" />
-      <path value="|b|messages.KeyMapBundle|k|main.toolbar.title|Main Toolbar" />
-      <path value="|b|messages.ActionsBundle|k|group.MainToolbarCenter.text|Center" />
-    </group>
-  </component>
-</application>
