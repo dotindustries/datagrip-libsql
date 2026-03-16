@@ -1,6 +1,8 @@
 package com.dotinc.libsql;
 
 import java.net.URI;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -74,7 +76,7 @@ public class LibSqlDriver implements Driver {
                     for (String param : query.split("&")) {
                         String[] kv = param.split("=", 2);
                         if (kv.length == 2 && ("authToken".equals(kv[0]) || "token".equals(kv[0]))) {
-                            authToken = kv[1];
+                            authToken = URLDecoder.decode(kv[1], StandardCharsets.UTF_8);
                             // Strip query from baseUrl
                             baseUrl = baseUrl.substring(0, baseUrl.indexOf('?'));
                             LOG.info("authToken found in URL query param (" + authToken.length() + " chars)");
