@@ -1,20 +1,21 @@
 <idea-plugin>
     <id>com.dotinc.datagrip-libsql</id>
     <name>libSQL / Turso</name>
-    <vendor email="hello@dot-inc.com" url="https://github.com/dot-inc">dot-inc</vendor>
+    <vendor email="hello@dot-inc.com" url="https://github.com/dot-inc/datagrip-libsql">dot-inc</vendor>
     <description><![CDATA[
     <h2>libSQL / Turso Database Driver for DataGrip</h2>
 
     <p>Native JDBC driver that connects DataGrip to <b>libSQL</b> and <b>Turso</b> databases
-    via the HTTP pipeline API. No external dependencies required — just install and connect.</p>
+    via the HTTP pipeline API. No external dependencies — just install and connect.</p>
 
     <h3>Features</h3>
     <ul>
-        <li><b>Full schema introspection</b> — tables, columns, primary keys, indexes, and foreign keys appear in the database tree</li>
+        <li><b>Full schema introspection</b> — tables, columns, primary keys, indexes, and foreign keys in the database tree</li>
         <li><b>Proper query lifecycle</b> — no hanging spinners (fixes the DBeaver driver issue)</li>
         <li><b>SQLite dialect</b> — full SQL completion and syntax highlighting</li>
-        <li><b>Turso Cloud ready</b> — JWT auth token support, connects to any Turso database</li>
+        <li><b>Turso Cloud ready</b> — JWT auth token support via Advanced tab property</li>
         <li><b>Zero config</b> — auto-registers in DataGrip's driver list on install</li>
+        <li><b>Clear error messages</b> — auth failures (401/403) surfaced with actionable guidance</li>
     </ul>
 
     <h3>Getting Started</h3>
@@ -32,27 +33,21 @@
         <li>Self-hosted libSQL servers (sqld)</li>
         <li>Local libSQL instances</li>
     </ul>
+
+    <p>Source code: <a href="https://github.com/dot-inc/datagrip-libsql">github.com/dot-inc/datagrip-libsql</a></p>
+    <p>Report issues: <a href="https://github.com/dot-inc/datagrip-libsql/issues">GitHub Issues</a></p>
     ]]></description>
     <change-notes><![CDATA[
-    <b>0.19.0</b>
+    <b>1.0.0</b>
     <ul>
-        <li>Illustrated Turso head icon from official brand kit</li>
-        <li>Driver version now tracks plugin version correctly</li>
-        <li>Fixed URL query parameter stripping (no more 404 errors)</li>
-        <li>DBMS reported as "libSQL" (no more "better driver: SQLite" warning)</li>
-        <li>Auth token via Advanced tab property</li>
-        <li>Improved plugin description with getting started guide</li>
-    </ul>
-    <b>0.17.0</b>
-    <ul>
-        <li>Auto-registers in DataGrip driver list — no manual setup needed</li>
-        <li>Fat JAR with shaded Gson for isolated driver classloader</li>
+        <li>First stable release</li>
+        <li>Auto-registers in DataGrip driver list — no manual JAR setup</li>
+        <li>Full schema introspection: tables, columns, primary keys, indexes, foreign keys</li>
+        <li>Auth token via Advanced tab <code>authToken</code> property</li>
+        <li>Fat JAR with shaded Gson for DataGrip's isolated driver classloader</li>
         <li>Clear error messages for auth failures (401/403)</li>
-        <li>Debug logging to $TMPDIR/libsql-driver.log</li>
-    </ul>
-    <b>0.1.0</b>
-    <ul>
-        <li>Initial JDBC driver: connect, query, schema introspection via HTTP pipeline API</li>
+        <li>Custom keep-alive query support</li>
+        <li>Turso illustrated head as plugin icon</li>
     </ul>
     ]]></change-notes>
     <depends>com.intellij.modules.platform</depends>

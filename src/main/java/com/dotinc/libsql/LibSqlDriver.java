@@ -15,8 +15,8 @@ import java.util.logging.Logger;
 public class LibSqlDriver implements Driver {
 
     private static final String URL_PREFIX = "jdbc:libsql:";
-    private static final int MAJOR_VERSION = 0;
-    private static final int MINOR_VERSION = 25;
+    private static final int MAJOR_VERSION = 1;
+    private static final int MINOR_VERSION = 0;
 
     private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger("com.dotinc.libsql");
 
