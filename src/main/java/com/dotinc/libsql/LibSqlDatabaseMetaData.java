@@ -43,17 +43,17 @@ public class LibSqlDatabaseMetaData implements DatabaseMetaData {
 
     @Override
     public String getDriverVersion() throws SQLException {
-        return "0.1.0";
+        return getDriverMajorVersion() + "." + getDriverMinorVersion() + ".0";
     }
 
     @Override
     public int getDriverMajorVersion() {
-        return 0;
+        return new LibSqlDriver().getMajorVersion();
     }
 
     @Override
     public int getDriverMinorVersion() {
-        return 1;
+        return new LibSqlDriver().getMinorVersion();
     }
 
     @Override

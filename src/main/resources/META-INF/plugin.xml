@@ -3,21 +3,50 @@
     <name>libSQL / Turso</name>
     <vendor email="hello@dot-inc.com" url="https://github.com/dot-inc">dot-inc</vendor>
     <description><![CDATA[
-    Native JDBC driver for libSQL and Turso databases in DataGrip.
+    <h2>libSQL / Turso Database Driver for DataGrip</h2>
+
+    <p>Native JDBC driver that connects DataGrip to <b>libSQL</b> and <b>Turso</b> databases
+    via the HTTP pipeline API. No external dependencies required — just install and connect.</p>
+
+    <h3>Features</h3>
     <ul>
-        <li>Full schema introspection — tables appear in the database tree</li>
-        <li>Proper query lifecycle — no hanging spinners</li>
-        <li>DBMS detected as SQLite/libSQL</li>
-        <li>Connects via the libSQL HTTP pipeline API</li>
+        <li><b>Full schema introspection</b> — tables, columns, primary keys, indexes, and foreign keys appear in the database tree</li>
+        <li><b>Proper query lifecycle</b> — no hanging spinners (fixes the DBeaver driver issue)</li>
+        <li><b>SQLite dialect</b> — full SQL completion and syntax highlighting</li>
+        <li><b>Turso Cloud ready</b> — JWT auth token support, connects to any Turso database</li>
+        <li><b>Zero config</b> — auto-registers in DataGrip's driver list on install</li>
+    </ul>
+
+    <h3>Getting Started</h3>
+    <ol>
+        <li>Install this plugin and restart DataGrip</li>
+        <li>Add a new Data Source → select <b>libSQL / Turso</b></li>
+        <li>Enter your Turso database host (e.g. <code>my-db.turso.io</code>)</li>
+        <li>Go to the <b>Advanced</b> tab → set <code>authToken</code> to your Turso JWT token</li>
+        <li>Test Connection</li>
+    </ol>
+
+    <h3>Supported Databases</h3>
+    <ul>
+        <li>Turso Cloud databases</li>
+        <li>Self-hosted libSQL servers (sqld)</li>
+        <li>Local libSQL instances</li>
     </ul>
     ]]></description>
     <change-notes><![CDATA[
+    <b>0.19.0</b>
+    <ul>
+        <li>Illustrated Turso head icon from official brand kit</li>
+        <li>Driver version now tracks plugin version correctly</li>
+        <li>Fixed URL query parameter stripping (no more 404 errors)</li>
+        <li>DBMS reported as "libSQL" (no more "better driver: SQLite" warning)</li>
+        <li>Auth token via Advanced tab property</li>
+        <li>Improved plugin description with getting started guide</li>
+    </ul>
     <b>0.17.0</b>
     <ul>
         <li>Auto-registers in DataGrip driver list — no manual setup needed</li>
-        <li>Auth token via Password field, securely stored and URL-decoded for JWT</li>
         <li>Fat JAR with shaded Gson for isolated driver classloader</li>
-        <li>Turso brand icon</li>
         <li>Clear error messages for auth failures (401/403)</li>
         <li>Debug logging to $TMPDIR/libsql-driver.log</li>
     </ul>
