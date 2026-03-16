@@ -60,16 +60,9 @@ tasks {
             // Copy the fat driver JAR (includes Gson)
             val fat = fatDriverJar.get().archiveFile.get().asFile
             fat.copyTo(targetDir.resolve("libsql-driver.jar"), overwrite = true)
-            // Write driver.xml
-            targetDir.resolve("driver.xml").writeText("""<?xml version="1.0" encoding="UTF-8"?>
-<drivers>
-  <driver id="libsql" name="libSQL / Turso" driver-class="com.dotinc.libsql.LibSqlDriver" dialect="SQLITE">
-    <url-template name="default" template="jdbc:libsql:{host::localhost}[:{port::8080}]"/>
-    <url-template name="Turso Cloud" template="jdbc:libsql:https://{host}"/>
-    <option name="auto-sync" value="true"/>
-  </driver>
-</drivers>
-""")
+            // Copy driver.xml from resources (single source of truth)
+            val driverXmlSource = file("src/main/resources/databaseDrivers/libsql-drivers.xml")
+            driverXmlSource.copyTo(targetDir.resolve("driver.xml"), overwrite = true)
         }
     }
 

@@ -28,7 +28,7 @@ public class LibSqlDatabaseMetaData implements DatabaseMetaData {
 
     @Override
     public String getDatabaseProductName() throws SQLException {
-        return "SQLite";
+        return "libSQL";
     }
 
     @Override
