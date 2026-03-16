@@ -11,6 +11,21 @@
         <li>Connects via the libSQL HTTP pipeline API</li>
     </ul>
     ]]></description>
+    <change-notes><![CDATA[
+    <b>0.17.0</b>
+    <ul>
+        <li>Auto-registers in DataGrip driver list — no manual setup needed</li>
+        <li>Auth token via Password field, securely stored and URL-decoded for JWT</li>
+        <li>Fat JAR with shaded Gson for isolated driver classloader</li>
+        <li>Turso brand icon</li>
+        <li>Clear error messages for auth failures (401/403)</li>
+        <li>Debug logging to $TMPDIR/libsql-driver.log</li>
+    </ul>
+    <b>0.1.0</b>
+    <ul>
+        <li>Initial JDBC driver: connect, query, schema introspection via HTTP pipeline API</li>
+    </ul>
+    ]]></change-notes>
     <depends>com.intellij.modules.platform</depends>
     <depends>com.intellij.database</depends>
 
