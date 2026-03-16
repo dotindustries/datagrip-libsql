@@ -1,0 +1,138 @@
+<ivy-module version="2.0">
+  <info organisation="bundledPlugin" module="com.intellij.database" revision="DB-253.28294.259" />
+  <configurations>
+    <conf name="default" visibility="public" />
+  </configurations>
+  <publications>
+    <artifact name="plexus-utils" ext="jar" conf="default" url="plugins/DatabaseTools/lib" />
+    <artifact name="tips-database-plugin" ext="jar" conf="default" url="plugins/DatabaseTools/lib" />
+    <artifact name="maven-resolver-transport-http" ext="jar" conf="default" url="plugins/DatabaseTools/lib" />
+    <artifact name="maven-resolver-transport-file" ext="jar" conf="default" url="plugins/DatabaseTools/lib" />
+    <artifact name="aether-dependency-resolver" ext="jar" conf="default" url="plugins/DatabaseTools/lib" />
+    <artifact name="maven-resolver-provider" ext="jar" conf="default" url="plugins/DatabaseTools/lib" />
+    <artifact name="maven-resolver-connector-basic" ext="jar" conf="default" url="plugins/DatabaseTools/lib" />
+    <artifact name="database-plugin" ext="jar" conf="default" url="plugins/DatabaseTools/lib" />
+    <artifact name="intellij.database.dialects.mysqlbase.impl" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.copyright" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mysqlbase" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.sqlite.ex" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.jdbcConsole" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.postgres" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.oracle.ex.coverage" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mssql.impl" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mongo.ex" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.completionMlRanking" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mongo" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.maria" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.sybase" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.intelliLang" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.oracle.ex" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.postgresgreenplumbase" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.oracle" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.frontend.split" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.generic" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.connectivity" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.redis.backend" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.sql92" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.frontend.core" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.base" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mssql" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.impl" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.common.core" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.impl" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mysqlbase.ex" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.backend.split" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mysql" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mongo.js.external" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.frontend.impl" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.backend.core" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.sybase.ex" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.common.impl" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mongo.sql" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.trialPromotion.idesWithFreeTier" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.mssql.ex" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.postgresbase" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.core.impl" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.base.ex" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.pro" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.sqlite" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.jdbcConsole.shim" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.util" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.dialects.redis" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+    <artifact name="intellij.database.sql.core.impl" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+  </publications>
+  <dependencies>
+    <dependency org="bundledModule" name="intellij.database.util" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.sql" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.connectivity" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.jdbcConsole" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.jdbcConsole.shim" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.core.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.sql.core.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.sql.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.sql.backend.core" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.sql.common.core" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.sql.common.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mysqlbase.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mssql.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.base" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.sql92" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.generic" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.postgresbase" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.postgres" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.postgresgreenplumbase" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.sqlite" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mysql" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mysqlbase" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.maria" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mssql" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.oracle" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.redis" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.redis.backend" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mongo" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mongo.sql" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.sybase" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.base.ex" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mysqlbase.ex" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mssql.ex" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.sqlite.ex" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.oracle.ex" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mongo.ex" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.sybase.ex" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.spellchecker" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.json.backend" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.platform.rpc.backend" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.grid" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.util" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.grid.scripting.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.grid.types" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.grid.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.grid.charts.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.jdbcConsole" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.connectivity" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.platform.execution.serviceView" rev="DB-253.28294.259" />
+    <dependency org="bundledPlugin" name="intellij.grid.plugin" rev="DB-253.28294.259" />
+    <dependency org="bundledPlugin" name="com.intellij.platform.images" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.jdbcConsole.shim" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.platform.kernel.backend" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.platform.searchEverywhere" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.platform.searchEverywhere.backend" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.sql.backend.core" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.base" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.sql92" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.postgresbase" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.postgresgreenplumbase" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.generic" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mysqlbase" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.redis" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mongo" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mssql" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.base.ex" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.postgres" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.sqlite" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.oracle" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.sybase" rev="DB-253.28294.259" />
+  </dependencies>
+</ivy-module>

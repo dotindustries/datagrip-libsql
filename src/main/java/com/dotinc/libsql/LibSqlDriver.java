@@ -1,5 +1,6 @@
 package com.dotinc.libsql;
 
+import java.net.URI;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
@@ -15,7 +16,19 @@ public class LibSqlDriver implements Driver {
     private static final int MAJOR_VERSION = 0;
     private static final int MINOR_VERSION = 1;
 
+    private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger("com.dotinc.libsql");
+
     static {
+        try {
+            // Set up file logging early so connect() calls are captured
+            java.util.logging.FileHandler fh = new java.util.logging.FileHandler(
+                System.getProperty("java.io.tmpdir") + "/libsql-driver.log", true);
+            fh.setFormatter(new java.util.logging.SimpleFormatter());
+            LOG.addHandler(fh);
+            LOG.setLevel(java.util.logging.Level.ALL);
+        } catch (Exception e) {
+            // ignore
+        }
         try {
             DriverManager.registerDriver(new LibSqlDriver());
         } catch (SQLException e) {
@@ -36,12 +49,46 @@ public class LibSqlDriver implements Driver {
             baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
         }
 
+        LOG.info("connect called with url=" + url);
+        LOG.info("connect properties: " + (info != null ? info.toString() : "null"));
+
         String authToken = null;
         if (info != null) {
-            authToken = info.getProperty("password");
-            if (authToken == null) {
-                authToken = info.getProperty("authToken");
+            // Try all common property names DataGrip might use
+            for (String key : new String[]{"password", "Password", "authToken", "auth_token", "token"}) {
+                authToken = info.getProperty(key);
+                if (authToken != null && !authToken.isEmpty()) {
+                    LOG.info("authToken found in property: " + key + " (" + authToken.length() + " chars)");
+                    break;
+                }
+                authToken = null;
             }
+        }
+
+        // Fallback: extract authToken from URL query parameter ?authToken=xxx
+        if (authToken == null) {
+            try {
+                URI uri = URI.create(baseUrl);
+                String query = uri.getQuery();
+                if (query != null) {
+                    for (String param : query.split("&")) {
+                        String[] kv = param.split("=", 2);
+                        if (kv.length == 2 && ("authToken".equals(kv[0]) || "token".equals(kv[0]))) {
+                            authToken = kv[1];
+                            // Strip query from baseUrl
+                            baseUrl = baseUrl.substring(0, baseUrl.indexOf('?'));
+                            LOG.info("authToken found in URL query param (" + authToken.length() + " chars)");
+                            break;
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                // URL parsing failed, ignore
+            }
+        }
+
+        if (authToken == null) {
+            LOG.warning("No auth token found in properties or URL. Connection will likely fail with 401.");
         }
 
         return new LibSqlConnection(baseUrl, authToken);

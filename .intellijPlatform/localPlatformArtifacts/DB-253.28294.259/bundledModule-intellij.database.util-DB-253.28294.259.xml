@@ -1,0 +1,10 @@
+<ivy-module version="2.0">
+  <info organisation="bundledModule" module="intellij.database.util" revision="DB-253.28294.259" />
+  <configurations>
+    <conf name="default" visibility="public" />
+  </configurations>
+  <publications>
+    <artifact name="intellij.database.util" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+  </publications>
+  <dependencies />
+</ivy-module>

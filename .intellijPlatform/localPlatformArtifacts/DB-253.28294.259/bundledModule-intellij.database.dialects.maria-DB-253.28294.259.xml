@@ -1,0 +1,14 @@
+<ivy-module version="2.0">
+  <info organisation="bundledModule" module="intellij.database.dialects.maria" revision="DB-253.28294.259" />
+  <configurations>
+    <conf name="default" visibility="public" />
+  </configurations>
+  <publications>
+    <artifact name="intellij.database.dialects.maria" ext="jar" conf="default" url="plugins/DatabaseTools/lib/modules" />
+  </publications>
+  <dependencies>
+    <dependency org="bundledModule" name="intellij.grid.core.impl" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.mysqlbase" rev="DB-253.28294.259" />
+    <dependency org="bundledModule" name="intellij.database.dialects.generic" rev="DB-253.28294.259" />
+  </dependencies>
+</ivy-module>
