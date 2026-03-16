@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drivers>
   <driver id="libsql" name="libSQL / Turso" driver-class="com.dotinc.libsql.LibSqlDriver" dialect="SQLITE" icon="/icons/libsql.svg">
-    <url-template name="Turso Cloud" template="jdbc:libsql:https://{host}\?authToken={password}" default="true"/>
-    <url-template name="Local" template="jdbc:libsql:{host::localhost}[:{port::8080}][\?authToken={password}]"/>
+    <url-template name="Turso Cloud" template="jdbc:libsql:https://{host}" default="true"/>
+    <url-template name="Local" template="jdbc:libsql:{host::localhost}[:{port::8080}]"/>
+    <property name="authToken" value=""/>
     <option name="auto-sync" value="true"/>
     <library>
       <url>file://$APPLICATION_CONFIG_DIR$/plugins/datagrip-libsql/datagrip-driver-libsql/libsql-driver.jar</url>

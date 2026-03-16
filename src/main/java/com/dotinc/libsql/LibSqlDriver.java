@@ -46,53 +46,49 @@ public class LibSqlDriver implements Driver {
 
         String baseUrl = url.substring(URL_PREFIX.length());
 
-        // Strip trailing slash if present
+        LOG.info("connect called with url=" + url);
+        LOG.info("connect properties: " + (info != null ? info.toString() : "null"));
+
+        // Step 1: Always extract and strip query params from URL
+        String urlAuthToken = null;
+        int queryStart = baseUrl.indexOf('?');
+        if (queryStart >= 0) {
+            String query = baseUrl.substring(queryStart + 1);
+            baseUrl = baseUrl.substring(0, queryStart);
+            for (String param : query.split("&")) {
+                String[] kv = param.split("=", 2);
+                if (kv.length == 2 && ("authToken".equals(kv[0]) || "token".equals(kv[0]))) {
+                    urlAuthToken = URLDecoder.decode(kv[1], StandardCharsets.UTF_8);
+                }
+            }
+        }
+
+        // Strip trailing slash
         if (baseUrl.endsWith("/")) {
             baseUrl = baseUrl.substring(0, baseUrl.length() - 1);
         }
 
-        LOG.info("connect called with url=" + url);
-        LOG.info("connect properties: " + (info != null ? info.toString() : "null"));
-
+        // Step 2: Resolve auth token — properties first, then URL param
         String authToken = null;
         if (info != null) {
-            // Try all common property names DataGrip might use
             for (String key : new String[]{"password", "Password", "authToken", "auth_token", "token"}) {
-                authToken = info.getProperty(key);
-                if (authToken != null && !authToken.isEmpty()) {
-                    LOG.info("authToken found in property: " + key + " (" + authToken.length() + " chars)");
+                String val = info.getProperty(key);
+                if (val != null && !val.isEmpty()) {
+                    authToken = val;
+                    LOG.info("authToken from property '" + key + "' (" + val.length() + " chars)");
                     break;
                 }
-                authToken = null;
             }
         }
-
-        // Fallback: extract authToken from URL query parameter ?authToken=xxx
+        if (authToken == null && urlAuthToken != null && !urlAuthToken.isEmpty()) {
+            authToken = urlAuthToken;
+            LOG.info("authToken from URL query param (" + authToken.length() + " chars)");
+        }
         if (authToken == null) {
-            try {
-                URI uri = URI.create(baseUrl);
-                String query = uri.getQuery();
-                if (query != null) {
-                    for (String param : query.split("&")) {
-                        String[] kv = param.split("=", 2);
-                        if (kv.length == 2 && ("authToken".equals(kv[0]) || "token".equals(kv[0]))) {
-                            authToken = URLDecoder.decode(kv[1], StandardCharsets.UTF_8);
-                            // Strip query from baseUrl
-                            baseUrl = baseUrl.substring(0, baseUrl.indexOf('?'));
-                            LOG.info("authToken found in URL query param (" + authToken.length() + " chars)");
-                            break;
-                        }
-                    }
-                }
-            } catch (Exception e) {
-                // URL parsing failed, ignore
-            }
+            LOG.warning("No auth token found. Connection will likely fail with 401.");
         }
 
-        if (authToken == null) {
-            LOG.warning("No auth token found in properties or URL. Connection will likely fail with 401.");
-        }
-
+        LOG.info("baseUrl resolved: " + baseUrl);
         return new LibSqlConnection(baseUrl, authToken);
     }
 
