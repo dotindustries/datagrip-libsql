@@ -1,6 +1,5 @@
 package com.dotinc.libsql;
 
-import java.net.URI;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
@@ -18,19 +17,7 @@ public class LibSqlDriver implements Driver {
     private static final int MAJOR_VERSION = 1;
     private static final int MINOR_VERSION = 0;
 
-    private static final java.util.logging.Logger LOG = java.util.logging.Logger.getLogger("com.dotinc.libsql");
-
     static {
-        try {
-            // Set up file logging early so connect() calls are captured
-            java.util.logging.FileHandler fh = new java.util.logging.FileHandler(
-                System.getProperty("java.io.tmpdir") + "/libsql-driver.log", true);
-            fh.setFormatter(new java.util.logging.SimpleFormatter());
-            LOG.addHandler(fh);
-            LOG.setLevel(java.util.logging.Level.ALL);
-        } catch (Exception e) {
-            // ignore
-        }
         try {
             DriverManager.registerDriver(new LibSqlDriver());
         } catch (SQLException e) {
@@ -45,9 +32,6 @@ public class LibSqlDriver implements Driver {
         }
 
         String baseUrl = url.substring(URL_PREFIX.length());
-
-        LOG.info("connect called with url=" + url);
-        LOG.info("connect properties: " + (info != null ? info.toString() : "null"));
 
         // Step 1: Always extract and strip query params from URL
         String urlAuthToken = null;
@@ -75,20 +59,14 @@ public class LibSqlDriver implements Driver {
                 String val = info.getProperty(key);
                 if (val != null && !val.isEmpty()) {
                     authToken = val;
-                    LOG.info("authToken from property '" + key + "' (" + val.length() + " chars)");
                     break;
                 }
             }
         }
         if (authToken == null && urlAuthToken != null && !urlAuthToken.isEmpty()) {
             authToken = urlAuthToken;
-            LOG.info("authToken from URL query param (" + authToken.length() + " chars)");
-        }
-        if (authToken == null) {
-            LOG.warning("No auth token found. Connection will likely fail with 401.");
         }
 
-        LOG.info("baseUrl resolved: " + baseUrl);
         return new LibSqlConnection(baseUrl, authToken);
     }
 

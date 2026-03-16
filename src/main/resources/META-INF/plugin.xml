@@ -13,7 +13,7 @@
         <li><b>Full schema introspection</b> — tables, columns, primary keys, indexes, and foreign keys in the database tree</li>
         <li><b>Proper query lifecycle</b> — no hanging spinners (fixes the DBeaver driver issue)</li>
         <li><b>SQLite dialect</b> — full SQL completion and syntax highlighting</li>
-        <li><b>Turso Cloud ready</b> — JWT auth token support via Advanced tab property</li>
+        <li><b>Turso Cloud ready</b> — paste your JWT auth token in the Password field</li>
         <li><b>Zero config</b> — auto-registers in DataGrip's driver list on install</li>
         <li><b>Clear error messages</b> — auth failures (401/403) surfaced with actionable guidance</li>
     </ul>
@@ -23,7 +23,7 @@
         <li>Install this plugin and restart DataGrip</li>
         <li>Add a new Data Source → select <b>libSQL / Turso</b></li>
         <li>Enter your Turso database host (e.g. <code>my-db.turso.io</code>)</li>
-        <li>Go to the <b>Advanced</b> tab → set <code>authToken</code> to your Turso JWT token</li>
+        <li>Paste your Turso JWT auth token in the <b>Password</b> field</li>
         <li>Test Connection</li>
     </ol>
 
@@ -43,7 +43,7 @@
         <li>First stable release</li>
         <li>Auto-registers in DataGrip driver list — no manual JAR setup</li>
         <li>Full schema introspection: tables, columns, primary keys, indexes, foreign keys</li>
-        <li>Auth token via Advanced tab <code>authToken</code> property</li>
+        <li>Auth token via Password field</li>
         <li>Fat JAR with shaded Gson for DataGrip's isolated driver classloader</li>
         <li>Clear error messages for auth failures (401/403)</li>
         <li>Custom keep-alive query support</li>
