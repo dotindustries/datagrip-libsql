@@ -15,7 +15,7 @@ public class LibSqlDriver implements Driver {
 
     private static final String URL_PREFIX = "jdbc:libsql:";
     private static final int MAJOR_VERSION = 1;
-    private static final int MINOR_VERSION = 1;
+    private static final int MINOR_VERSION = 0;
 
     static {
         try {
