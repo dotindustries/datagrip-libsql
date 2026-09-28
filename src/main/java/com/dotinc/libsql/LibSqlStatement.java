@@ -178,6 +178,7 @@ public class LibSqlStatement implements Statement {
             lastResultSet.close();
             lastResultSet = null;
         }
+        updateCount = -1;
         return false;
     }
 
